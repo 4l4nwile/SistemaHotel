@@ -1,3 +1,60 @@
-<p>
-  pagina-login works!
-</p>
+<app-cabecera></app-cabecera>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
+          <app-form-izquierdo></app-form-izquierdo>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10">
+              <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
+                            <div class="card col-lg-9">
+                                    <div class="card-header">
+                                      Iniciar Sessión
+                                    </div>
+                                    <div class="card-body">
+                                    <form>
+                                        <div class="form-group">
+                                          <label for="exampleInputEmail1">Usuario</label>
+                                          <input type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario" required>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="exampleInputPassword1">Contraseña</label>
+                                          <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Contraseña" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleCategoria1">Categoria</label>
+                                            <select class="custom-select" required>
+                                                <option value="">Seleccione categoria</option>
+                                                <option value="1">Cliente</option>
+                                                <option value="2">Recepcion</option>
+                                                <option value="3">Admin</option>
+                                              </select>
+                                              <div class="invalid-feedback">Example invalid custom select feedback</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-warning font-weight-bold">Ingresar</button>
+                                        </div>
+                                        <div class="form-row">
+                                            <a href="#" class="badge badge-light" routerLink="/recuperar">Olvide contraseña</a>
+                                            <a class="#" href="" routerLink="/registro"><h5><span class="badge badge-pill badge-warning">Registro</span></h5></a>
+                                        </div>
+                                      </form>
+                                      
+                                      <div class="row">
+                                          <div class="col-md-12 mx-auto mt-2">
+                                                        <div class="btn btm-lg btn-google google"><i class="fa fa-google"></i> Google</div>
+                                                        <div class="btn btm-lg btn-facebook facebook"> <i class="fa fa-facebook"></i> Facebook</div>
+                                                        <div class="btn btm-lg btn-twitter twitter"><i class="fa fa-twitter"></i> Twitter</div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                </div>    
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+                        <app-form-derecho></app-form-derecho>
+                    </div>
+              </div>    
+        </div>  
+</div>
+<app-pie></app-pie>
+
