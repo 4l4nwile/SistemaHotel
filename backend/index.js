@@ -11,7 +11,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
 app.use(express.json());
 
-app.use('/empleados',require('./routes/employee.routes'));
+app.use('/consultas',require('./routes/consultas.routes'));
 
 // iniciar el servidor
 app.listen(app.get('port'), () => {
