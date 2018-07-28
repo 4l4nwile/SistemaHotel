@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const URI = 'mongodb://localhost/DbSisHotel';
+const URI = 'mongodb://localhost/RegistroClientes';
 
 mongoose.connect(URI)
     .then(db => console.log('base de datos conectada'))

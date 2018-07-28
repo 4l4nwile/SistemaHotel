@@ -7,11 +7,11 @@ ControlConsulta.getUsuarios = async (req, res) => {
     res.json(consultas);
 }
 ControlConsulta.createUsuario = async (req, res) =>
-{        const consulta = new Usuarios(req.body);
-        await consulta.save();
+{        const consulta = new Consultas(req.body);
+         await consulta.save();
         res.json(
            {
-            'status': 'Empleado guardado'
+            'status': 'Datos del Usuario guardados'
            }
         );
 }
@@ -26,15 +26,20 @@ ControlConsulta.EditUsuario = async (req, res) =>
     const consulta = {
         nombres: req.body.nombres,
         apellidos: req.body.apellidos,
-        oficio: req.body.oficio,
-        salario: req.body.salario
+        fechaNac: req.body.fechaNac,
+        sexo: req.body.sexo,
+        nacionalidad: req.body.nacionalidad,
+        ocupacion: req.body.ocupacion,
+        correoElectronico: req.body.correoElectronico,
+        contrasenia: req.body.contrasenia,
+        contraseniaR: req.body.contraseniaR
     };
     await Consultas.findByIdAndUpdate(id, {$set: consulta}, {new: true});
-    res.json({status: 'datos actualizados'});
+    res.json({status: 'datos del Usuario actualizados'});
 }
 ControlConsulta.deleteUsuario = async (req, res, next) => {
     await Consultas.findByIdAndRemove(req.params.id);
-    res.json({status: 'eliminado'});
+    res.json({status: 'Datos del Usuario eliminado'});
 }
 
 

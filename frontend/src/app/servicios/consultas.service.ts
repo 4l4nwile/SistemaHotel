@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Consulta } from '../modelos/consulta';
 
+/*import { PaginaRegistroComponent} from '../comp/pagina-registro/pagina-registro.component';*/
+
 @Injectable({
   providedIn: 'root'
 })
 export class ConsultasService {
 
   SeleccionarConsulta: Consulta;
-  Usuarios: Consulta[];
+  consultas: Consulta[];
+  
   readonly URL_API = 'http://localhost:3000/consultas';
   
 
