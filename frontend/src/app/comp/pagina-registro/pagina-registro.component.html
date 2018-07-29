@@ -11,49 +11,49 @@
                                                 Registro de nuevo usuario 
                                         </div>
                                         <div class="card-body container">
-                                                <form  #consultaForm="ngForm" (ngSubmit)="AgregarUsuario(ConsultasService)"> 
+                                                <form  #FormAgregarUsuario="ngForm" (ngSubmit)="AgregarUsuario(FormAgregarUsuario)"> 
                                                         <div class="form-row">
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1" >Nombres</label>
-                                                                        <input type="text" class="form-control" #nombre="ngModel" [(ngModel)]="consultasService.SeleccionarConsulta.Nombres" placeholder="Nombres">
+                                                                        <input type="text" class="form-control" name="nombres" #nombres="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.nombres" placeholder="Nombres">
                                                                 </div>
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1">Apellidos</label>
-                                                                        <input type="text" class="form-control" #nombre="ngModel" [(ngModel)]="consultasService.SeleccionarConsulta.Apellidos" placeholder="Apellidos">
+                                                                        <input type="text" class="form-control" name="apellidos" #apellidos="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.apellidos" placeholder="Apellidos">
                                                                 </div>
                                                         </div>
                                                         <div class="form-row">
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1">Fecha Nac.</label>
-                                                                        <input type="date" class="form-control" placeholder="fecha">
+                                                                        <input type="date" class="form-control" name="fechaNac" #fechaNac="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.fechaNac">
                                                                 </div>
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1">Sexo</label>
-                                                                        <input type="text" class="form-control" #nombre="ngModel" [(ngModel)]="consultasService.SeleccionarConsulta.Sexo" placeholder="Sexo">
+                                                                        <input type="text" class="form-control" name="sexo" #sexo="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.sexo" placeholder="Sexo">
                                                                 </div>
                                                         </div>
                                                         <div class="form-row">
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1">Nacionalidad</label>
-                                                                        <input type="text" class="form-control" #nombre="ngModel" [(ngModel)]="consultasService.SeleccionarConsulta.Nacionalidad" placeholder="Nacionalidad">
+                                                                        <input type="text" class="form-control" name="nacionalidad" #nacionalidad="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.nacionalidad" placeholder="Nacionalidad">
                                                                 </div>
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1">Ocupación</label>
-                                                                        <input type="text" class="form-control" #nombre="ngModel" [(ngModel)]="consultasService.SeleccionarConsulta.Ocupacion" placeholder="Ocupación">
+                                                                        <input type="text" class="form-control" name="ocupacion" #ocupacion="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.ocupacion" placeholder="Ocupación">
                                                                 </div>
                                                         </div>
                                                         <div class="form-group">
                                                                 <label for="exampleInputEmail1">Correo Electronico</label>
-                                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #nombre="ngModel" [(ngModel)]="consultasService.SeleccionarConsulta.Correo" placeholder="Correo">
+                                                                <input type="email" class="form-control"name="correoElectronico" #correoElectronico="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.correoElectronico" placeholder="Correo">
                                                         </div>
                                                         <div class="form-row">
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1">Contraseña</label>
-                                                                        <input type="text" class="form-control" #nombre="ngModel" [(ngModel)]="consultasService.SeleccionarConsulta.Contra" placeholder="contraseña">
+                                                                        <input type="password" class="form-control" name="contrasenia" #contrasenia="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.contrasenia" placeholder="contraseña">
                                                                 </div>
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1">confirmar</label>
-                                                                        <input type="text" class="form-control" #nombre="ngModel" [(ngModel)]="consultasService.SeleccionarConsulta.ContraR" placeholder="confirmar">
+                                                                        <input type="password" class="form-control" name="contraseniaR" #contraseniaR="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.contraseniaR" placeholder="confirmar">
                                                                 </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -67,8 +67,8 @@
                                                                         </div>
                                                                 </div>
                                                                 <div class="text-center">
-                                                                                <button type="submit" class="btn btn-primary">Registrar</button>
-                                                                                <button type="submit" class="btn btn-primary">Limpiar</button>
+                                                                                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Registrar</button>
+                                                                                <button type="submit" class="btn btn-primary" (click)="limpiarForm(FormAgregarUsuario)">Limpiar</button>
                                                                 </div>
                                                         </div>
                                                         </div>
@@ -83,5 +83,17 @@
                 </div>
                 
         </div>  
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Datos guardados!</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>    
+                                </div>
+                        </div>
+        </div>
 </div>
-<app-pie></app-pie>>
+<app-pie></app-pie>
