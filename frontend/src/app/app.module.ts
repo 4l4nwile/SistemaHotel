@@ -24,6 +24,7 @@ import { PaginaReservaComponent } from './comp/pagina-reserva/pagina-reserva.com
 import { PaginaRoomsComponent } from './comp/pagina-rooms/pagina-rooms.component';
 import { PaginaServiciosComponent } from './comp/pagina-servicios/pagina-servicios.component';
 import { PieComponent } from './comp/pie/pie.component';
+import { ReporteClientesComponent } from './comp/reporte-clientes/reporte-clientes.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PieComponent } from './comp/pie/pie.component';
     PaginaReservaComponent,
     PaginaRoomsComponent,
     PaginaServiciosComponent,
-    PieComponent
+    PieComponent,
+    ReporteClientesComponent
   ],
   imports: [
     BrowserModule,

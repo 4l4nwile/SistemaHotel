@@ -7,7 +7,17 @@ ControlConsulta.getUsuarios = async (req, res) => {
     res.json(consultas);
 }
 ControlConsulta.createUsuario = async (req, res) =>
-{        const consulta = new Consultas(req.body);
+{        const consulta = new Consultas({
+    nombres: req.body.nombres,
+    apellidos: req.body.apellidos,
+    fechaNac: req.body.fechaNac,
+    sexo: req.body.sexo,
+    nacionalidad: req.body.nacionalidad,
+    ocupacion: req.body.ocupacion,
+    correoElectronico: req.body.correoElectronico,
+    contrasenia: req.body.contrasenia,
+    contraseniaR: req.body.contraseniaR
+            });
          await consulta.save();
         res.json(
            {

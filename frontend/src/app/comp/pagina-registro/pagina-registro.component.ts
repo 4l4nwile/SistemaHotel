@@ -3,7 +3,6 @@ import { RegistroUsuarioService } from '../../servicios/registro-usuario.service
 import { NgForm } from '../../../../node_modules/@angular/forms';
 import { RegistroUsuarios } from '../../modelos/registro-usuarios';
 
-declare var M: any;
 
 @Component({
   selector: 'app-pagina-registro',
@@ -23,7 +22,6 @@ export class PaginaRegistroComponent implements OnInit {
       .subscribe(res =>
       {
           this.limpiarForm(form);
-          M.toast({html: 'datos guardados'});
       });
 
   }

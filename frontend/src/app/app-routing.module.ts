@@ -10,7 +10,8 @@ import { PaginaRoomsComponent} from './comp/pagina-rooms/pagina-rooms.component'
 import { PaginaServiciosComponent} from './comp/pagina-servicios/pagina-servicios.component';
 import { PaginaRecuperarcontraComponent} from './comp/pagina-recuperarcontra/pagina-recuperarcontra.component';
 import { PaginaRegistroComponent} from './comp/pagina-registro/pagina-registro.component';
-import { PaginaErrorComponent} from './comp/pagina-error/pagina-error.component';
+import { PaginaErrorComponent } from './comp/pagina-error/pagina-error.component';
+import { ReporteClientesComponent } from './comp/reporte-clientes/reporte-clientes.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,8 @@ const routes: Routes = [
   {path: 'servicios', component: PaginaServiciosComponent},
   {path: 'recuperar', component: PaginaRecuperarcontraComponent},
   {path: 'registro', component: PaginaRegistroComponent},
+  {path: 'registro', component: PaginaLoginComponent},
+  {path: 'repClientes', component: ReporteClientesComponent},
   {path: '**', component: PaginaErrorComponent}
 ];
 

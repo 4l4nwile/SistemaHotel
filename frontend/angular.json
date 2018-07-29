@@ -28,15 +28,13 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/materialize-css/dist/css/materialize.min.css",
               "node_modules/bootstrap/dist/css/estilo.css",
               "node_modules/font-awesome/css/font-awesome.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js",
-              "node_modules/materialize-css/dist/js/materialize.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },
           "configurations": {

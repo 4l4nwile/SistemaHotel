@@ -1,0 +1,123 @@
+<app-cabecera></app-cabecera>
+<div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
+          <app-form-izquierdo></app-form-izquierdo>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10">
+                <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
+                           <div class="table-responsive-sm">    
+                                <form #tablaUsuarios="ngForm" (ngSubmit)="actUsuario(tablaUsuarios)">
+                                                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario._id">
+                                        <table class="table table-hover table-sm table-striped">
+                                                <thead>
+                                                        <tr>
+                                                        <th scope="col"><i class="fab fa-asymmetrik"></i>Nombres</th>
+                                                        <th scope="col">Apellidos</th>
+                                                        <th scope="col">Nacionalidad</th>
+                                                        <th scope="col">Opciones</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr *ngFor="let usuario of registroUsuarioService.usuario">
+                                                                <td>{{usuario.nombres}}</td>
+                                                                <td>{{usuario.apellidos}}</td>
+                                                                <td>{{usuario.nacionalidad}}</td>
+                                                                <td>
+                                                                        <a (click)="editarUsuario(usuario)" data-toggle="modal" data-target="#exampleModal">
+                                                                                <i class="material-icons">edit</i>
+                                                                        </a>   
+                                                                        <a (click)="elimUsuario(usuario._id)">
+                                                                                <i class="material-icons">delete</i>
+                                                                        </a>                
+                                                                </td>
+                                                        </tr>
+                                                </tbody>
+                                        </table>
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                                        
+                                                                        <div class="form-row">
+                                                                                        <div class="col">
+                                                                                                <label for="exampleInputEmail1" >Nombres</label>
+                                                                                                <input type="text" class="form-control" name="nombres" #nombres="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.nombres" placeholder="Nombres" required>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                                <label for="exampleInputEmail1">Apellidos</label>
+                                                                                                <input type="text" class="form-control" name="apellidos" #apellidos="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.apellidos" placeholder="Apellidos" required>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="form-row">
+                                                                                        <div class="col">
+                                                                                                <label for="exampleInputEmail1">Fecha Nac.</label>
+                                                                                                <input type="date" class="form-control" name="fechaNac" #fechaNac="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.fechaNac">
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                                <label for="exampleInputEmail1">Sexo</label>
+                                                                                                <input type="text" class="form-control" name="sexo" #sexo="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.sexo" placeholder="Sexo">
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="form-row">
+                                                                                        <div class="col">
+                                                                                                <label for="exampleInputEmail1">Nacionalidad</label>
+                                                                                                <input type="text" class="form-control" name="nacionalidad" #nacionalidad="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.nacionalidad" placeholder="Nacionalidad" disabled>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                                <label for="exampleInputEmail1">Ocupación</label>
+                                                                                                <input type="text" class="form-control" name="ocupacion" #ocupacion="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.ocupacion" placeholder="Ocupación">
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                        <label for="exampleInputEmail1">Correo Electronico</label>
+                                                                                        <input type="email" class="form-control"name="correoElectronico" #correoElectronico="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.correoElectronico" placeholder="Correo">
+                                                                                </div>
+                                                                                <div class="form-row">
+                                                                                        <div class="col">
+                                                                                                <label for="exampleInputEmail1">Contraseña</label>
+                                                                                                <input type="password" class="form-control" name="contrasenia" #contrasenia="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.contrasenia" placeholder="contraseña">
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                                <label for="exampleInputEmail1">confirmar</label>
+                                                                                                <input type="password" class="form-control" name="contraseniaR" #contraseniaR="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.contraseniaR" placeholder="confirmar">
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="form-group row">
+                                                                                <div class="col-sm-10">
+                                                                                        <div class="form-group">
+                                                                                                <div class="form-check">
+                                                                                                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                                                                                                        <label class="form-check-label" for="gridCheck">
+                                                                                                        Recordarme!
+                                                                                                        </label>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                      
+                                                                                </div>
+                                                                                </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Actualizar</button>
+                                                        </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </form>
+                           </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+                                <app-form-derecho></app-form-derecho>
+                        </div>
+                </div>
+                
+        </div>  
+</div>
+<app-pie></app-pie>

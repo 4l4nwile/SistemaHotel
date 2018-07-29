@@ -11,25 +11,29 @@
                                                 Registro de nuevo usuario 
                                         </div>
                                         <div class="card-body container">
-                                                <form  #FormAgregarUsuario="ngForm" (ngSubmit)="AgregarUsuario(FormAgregarUsuario)"> 
+                                                <form class="needs-validation" novalidate #FormAgregarUsuario="ngForm" (ngSubmit)="AgregarUsuario(FormAgregarUsuario)"> 
+                                                                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario._id">
                                                         <div class="form-row">
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1" >Nombres</label>
-                                                                        <input type="text" class="form-control" name="nombres" #nombres="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.nombres" placeholder="Nombres">
+                                                                        <input  type="text" class="form-control" name="nombres" #nombres="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.nombres" placeholder="Nombres" id="validationTooltip03" placeholder="City" required>
+                                                                        <div class="invalid-tooltip">
+                                                                        Please provide a valid city.
+                                                                        </div>
                                                                 </div>
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1">Apellidos</label>
-                                                                        <input type="text" class="form-control" name="apellidos" #apellidos="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.apellidos" placeholder="Apellidos">
+                                                                        <input type="text" class="form-control" name="apellidos" #apellidos="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.apellidos" placeholder="Apellidos" required>
                                                                 </div>
                                                         </div>
                                                         <div class="form-row">
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1">Fecha Nac.</label>
-                                                                        <input type="date" class="form-control" name="fechaNac" #fechaNac="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.fechaNac">
+                                                                        <input type="date" class="form-control" name="fechaNac" #fechaNac="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.fechaNac" required>
                                                                 </div>
                                                                 <div class="col">
                                                                         <label for="exampleInputEmail1">Sexo</label>
-                                                                        <input type="text" class="form-control" name="sexo" #sexo="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.sexo" placeholder="Sexo">
+                                                                        <input type="text" class="form-control" name="sexo" #sexo="ngModel" [(ngModel)]="registroUsuarioService.SeleccionarUsuario.sexo" placeholder="Sexo" required>
                                                                 </div>
                                                         </div>
                                                         <div class="form-row">
@@ -58,23 +62,31 @@
                                                         </div>
                                                         <div class="form-group row">
                                                         <div class="col-sm-10">
-                                                                <div class="form-group">
-                                                                        <div class="form-check">
-                                                                                <input class="form-check-input" type="checkbox" id="gridCheck">
-                                                                                <label class="form-check-label" for="gridCheck">
-                                                                                Recordarme!
-                                                                                </label>
+                                                                <br>
+                                                                <div class="container">
+                                                                <div class="form-row">
+                                                                        <div class="col">
+                                                                           <button type="submit" class="btn btn-outline-success" data-toggle="modal" data-target=".bd-example-modal-sm">Registrar</button>
+                                                                                        
+                                                                        </div>
+                                                                        <div class="col">
+                                                                             <button  class="btn btn-outline-dark" (click)="limpiarForm(FormAgregarUsuario)">Limpiar</button>
                                                                         </div>
                                                                 </div>
-                                                                <div class="text-center">
-                                                                                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Registrar</button>
-                                                                                <button type="submit" class="btn btn-primary" (click)="limpiarForm(FormAgregarUsuario)">Limpiar</button>
                                                                 </div>
                                                         </div>
                                                         </div>
                                                         
                                                 </form>
                                         </div>
+                                                <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-sm">
+                                                                <div class="modal-content">
+                                                                Datos Guardados!
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/repClientes">Close</button>
+                                                                </div>
+                                                        </div>
+                                                </div>
                                 </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
@@ -83,17 +95,5 @@
                 </div>
                 
         </div>  
-        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Datos guardados!</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                </div>    
-                                </div>
-                        </div>
-        </div>
 </div>
 <app-pie></app-pie>
